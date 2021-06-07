@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Binary_Search_Tree
+﻿namespace Binary_Search_Tree
 {
     public interface ITree
     {
