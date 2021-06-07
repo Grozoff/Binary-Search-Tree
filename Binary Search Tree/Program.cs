@@ -10,12 +10,12 @@ namespace Binary_Search_Tree
             var root = new BinarySearchTree();
 
             var numbersArray = new int[] { 90, 110, 80, 70, 115, 25, 87, 119, 59, 6 };
-         
+
             foreach (var number in numbersArray)
             {
-                root.AddItem(number);             
+                root.AddItem(number);
             }
-            
+
             var value = root.GetNodeByValue(70);
 
             root.RemoveItem(115);
