@@ -23,6 +23,12 @@ namespace Binary_Search_Tree
             var array = root.GetTreeInLine();
 
             root.PrintTree();
+
+            // Проход по дереву с выводом каждого шага
+            Console.WriteLine("\nDFS:"); // DFS deep-first search
+            Console.WriteLine(string.Join(" --> ", root.Dfs())+ "\n"); 
+            Console.WriteLine("BFS:"); // BFS breadth-first search
+            Console.WriteLine(string.Join(" --> ", root.Bfs()));
         }
     }
 }

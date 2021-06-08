@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Binary_Search_Tree
 {
@@ -195,6 +196,44 @@ namespace Binary_Search_Tree
                 }
             }
             return null;
+        }
+
+        public IEnumerable<int> Dfs()
+        {
+            if (head == null)
+                yield break;
+
+            var stack = new Stack<TreeNode>();
+            stack.Push(head);
+
+            while (stack.Count > 0)
+            {
+                var node = stack.Pop();
+                yield return node.Value;
+                if (node.RightChild != null)
+                    stack.Push(node.RightChild);
+                if (node.LeftChild != null)
+                    stack.Push(node.LeftChild);
+            }
+        }
+
+        public IEnumerable<int> Bfs()
+        {
+            if (head == null)
+                yield break;
+
+            var queue = new Queue<TreeNode>();
+            queue.Enqueue(head);
+
+            while (queue.Count > 0)
+            {
+                var node = queue.Dequeue();
+                yield return node.Value;
+                if (node.LeftChild != null)
+                    queue.Enqueue(node.LeftChild);
+                if (node.RightChild != null)
+                    queue.Enqueue(node.RightChild);
+            }
         }
 
         public void PrintTree()
