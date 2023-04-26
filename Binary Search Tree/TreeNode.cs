@@ -3,7 +3,9 @@
     public class TreeNode
     {
         public int Value { get; set; }
+
         public TreeNode LeftChild { get; set; }
+
         public TreeNode RightChild { get; set; }
 
         public TreeNode(int value)
