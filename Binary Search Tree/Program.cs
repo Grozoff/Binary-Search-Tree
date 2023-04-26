@@ -6,11 +6,11 @@ namespace Binary_Search_Tree
     {
         static void Main(string[] args)
         {
+            Console.Clear();
             var root = new BinarySearchTree();
-            root.GrowRandomTree(10, 1, 15);
+            root.GrowRandomTree(100, 1, 50);
 
-            var a = root.GetTreeInLine();
-
+            root.BalanceTree();
             root.PrintTree();
 
             Console.WriteLine("\nDFS:"); // DFS deep-first search

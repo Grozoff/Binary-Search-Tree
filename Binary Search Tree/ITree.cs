@@ -5,6 +5,11 @@ namespace Binary_Search_Tree
     public interface ITree
     {
         /// <summary>
+        /// Balance the tree.
+        /// </summary>
+        void BalanceTree();
+
+        /// <summary>
         /// Get DFS way.
         /// </summary>
         /// <returns></returns>

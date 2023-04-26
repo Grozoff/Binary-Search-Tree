@@ -10,6 +10,16 @@ namespace Binary_Search_Tree
 
         public TreeNode GetRoot() => head;
 
+        public void BalanceTree()
+        {
+            // Convert the tree to a list
+            var list = new List<TreeNode>();
+            InOrderTraversal(head, list);
+
+            // Rebuild the tree from the sorted list
+            head = BuildBalancedTree(list, 0, list.Count - 1);
+        }
+
         public IEnumerable<int> GetDfsWay()
         {
             if (head == null)
@@ -50,7 +60,6 @@ namespace Binary_Search_Tree
 
         public void PrintTree()
         {
-            Console.Clear();
             head.Print();
         }
 
@@ -164,6 +173,36 @@ namespace Binary_Search_Tree
         {
             if (node.LeftChild == null) return node;
             return GetSuccessor(node.LeftChild);
+        }
+
+        private void InOrderTraversal(TreeNode node, List<TreeNode> list)
+        {
+            if (node == null)
+            {
+                return;
+            }
+
+            InOrderTraversal(node.LeftChild, list);
+            list.Add(node);
+            InOrderTraversal(node.RightChild, list);
+        }
+
+        private TreeNode BuildBalancedTree(List<TreeNode> list, int start, int end)
+        {
+            if (start > end)
+            {
+                return null;
+            }
+
+            // Find the middle node and make it the root of the subtree
+            int mid = (start + end) / 2;
+            TreeNode node = list[mid];
+
+            // Recursively build the left and right subtrees
+            node.LeftChild = BuildBalancedTree(list, start, mid - 1);
+            node.RightChild = BuildBalancedTree(list, mid + 1, end);
+
+            return node;
         }
     }
 }
