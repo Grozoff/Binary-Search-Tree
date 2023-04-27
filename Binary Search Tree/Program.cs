@@ -8,8 +8,7 @@ namespace Binary_Search_Tree
         {
             Console.Clear();
             var root = new BinarySearchTree();
-            root.GrowRandomTree(100, 1, 50);
-
+            root.GrowRandomTree(10, 1, 10);
             root.BalanceTree();
             root.PrintTree();
 
